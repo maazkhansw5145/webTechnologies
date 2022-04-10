@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="fontawesome-free-5.6.3-web/css/all.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <title>Admin Login - Coft-Tech</title>
+  </head>
+
+  <body style="background-color: #140d25">
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3>
+              <br />
+              <img src="photo/Coft Tech.gif" />
+            </h3>
+
+            <button
+              onclick="document.getElementById('id01').style.display='block'"
+              class="button"
+              style="border-radius: 5px"
+              style="text-align: center"
+            >
+              Login
+            </button>
+            <br />
+            <br />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="id01" class="modal">
+      <form class="modal-content animate">
+        <div class="imgcontainer">
+          <span
+            onclick="document.getElementById('id01').style.display='none'"
+            class="close"
+            title="Close Modal"
+            >&times;</span
+          >
+          <img src="imgs/team/hr.png" class="avatar" />
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h3><strong>Admin</strong></h3>
+            </div>
+            <br />
+          </div>
+          <label for="loginId"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="loginId"
+            id="loginId"
+          />
+
+          <label for="password"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            id="password"
+          />
+          <p id="alert" style="color: red"></p>
+
+          <label>
+            <input type="checkbox" checked="checked" name="remember" /> Remember
+            me
+          </label>
+          <br />
+          <br />
+          <button
+            type="button"
+            class="button"
+            style="border-radius: 5px"
+            onclick="onSubmit()"
+          >
+            Login
+          </button>
+        </div>
+
+        <div class="container" style="background-color: #f1f1f1">
+          <button
+            type="button"
+            onclick="document.getElementById('id01').style.display='none'"
+            class="cancelbtn"
+          >
+            Cancel
+          </button>
+          <span class="psw"><a href="#">Forgot password?</a></span>
+        </div>
+      </form>
+    </div>
+
+    <div class="bubbles">
+      <img src="imgs/bub3.png" />
+      <img src="imgs/bub3.png" />
+      <img src="imgs/bub3.png" />
+      <img src="imgs/bub3.png" />
+      <img src="imgs/bub3.png" />
+      <img src="imgs/bub3.png" />
+      <img src="imgs/bub3.png" />
+    </div>
+
+    <script>
+      function onSubmit() {
+        let loginId = document.getElementById("loginId").value;
+        let password = document.getElementById("password").value;
+        var text;
+        if (loginId === "admin@gmail.com" && password === "password") {
+          window.location.replace("adminhome.html");
+        } else {
+          if (loginId !== "admin@gmail.com") {
+            text = "Wrong Login Id";
+            document.getElementById("alert").innerHTML = text;
+          } else if (password !== "password") {
+            text = "Wrong Password";
+            document.getElementById("alert").innerHTML = text;
+          }
+        }
+      }
+    </script>
+
+    <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
