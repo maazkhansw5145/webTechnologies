@@ -115,17 +115,29 @@
         let loginId = document.getElementById("loginId").value;
         let password = document.getElementById("password").value;
         var text;
-        if (loginId === "admin@gmail.com" && password === "password") {
-          window.location.replace("adminhome.html");
-        } else {
-          if (loginId !== "admin@gmail.com") {
-            text = "Wrong Login Id";
-            document.getElementById("alert").innerHTML = text;
-          } else if (password !== "password") {
-            text = "Wrong Password";
-            document.getElementById("alert").innerHTML = text;
+
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(loginId)) {
+          if(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(password)){
+             window.location.replace("adminhome.html");
           }
+          else {
+         alert("Password must contain atleast 1 lower and upper case letter, 1 number, 1 special character and length must be greater then 8");
+          }
+        } else {
+          alert("Email id must start from a letter, should not have double dots, must include @ and .");
         }
+        // if (loginId === "admin@gmail.com" && password === "password") {
+        //   window.location.replace("adminhome.html");
+        // } else {
+
+        //   if (loginId !== "admin@gmail.com") {
+        //     text = "Wrong Login Id";
+        //     document.getElementById("alert").innerHTML = text;
+        //   } else if (password !== "password") {
+        //     text = "Wrong Password";
+        //     document.getElementById("alert").innerHTML = text;
+        //   }
+        // }
       }
     </script>
 
